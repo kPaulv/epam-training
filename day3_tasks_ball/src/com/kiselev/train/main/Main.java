@@ -15,13 +15,13 @@ public class Main {
             TrainService service = new TrainService();
             Train[] trains = service.trainsArray();
             Depot depot = new Depot(trains);
-            Train[] similarDestTrain = depot.similarDestination("Minsk");
-            Train[] similarDestTime = depot.similarDestinationTime("Minsk",
+            Train[] similarDestTrain = service.similarDestination(depot, "Minsk");
+            Train[] similarDestTime = service.similarDestinationTime(depot, "Minsk",
                                                                     LocalDateTime.of(2020, Month.NOVEMBER,
-                                                                                     15, 12, 30));
-            Train[] similarDestCommon = depot.similarDestinationCommon("Minsk");
-            Train trainByNumber = depot.trainByNumber(6);
-            Train[] moreLuxSits = depot.moreLuxSits(4);
+                                                                                     15, 12, 0));
+            Train[] similarDestCommon = service.similarDestinationCommon(depot, "Minsk");
+            Train trainByNumber = service.trainByNumber(depot, 6);
+            Train[] moreLuxSits = service.moreLuxSits(depot, 4);
             TrainsReport report = new TrainsReport();
             report.showTrainsLists(similarDestTrain, similarDestTime, similarDestCommon, trainByNumber, moreLuxSits);
         } catch (InputMismatchException e) {
@@ -29,3 +29,4 @@ public class Main {
         }
     }
 }
+
