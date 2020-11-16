@@ -20,6 +20,16 @@ public class Train {
         reservedSits = 0;
         luxSits = 0;
     }
+    
+    public Train(Train train) {
+        destination = train.destination;
+        number = train.number;
+        departureTime = train.departureTime;
+        commonSits = train.commonSits;
+        compartmentSits = train.compartmentSits;
+        reservedSits = train.reservedSits;
+        luxSits = train.luxSits;
+    }
 
     public Train(String destination, int number, LocalDateTime departureTime, int commonSits, int compartmentSits,
                  int reservedSits, int luxSits) {
