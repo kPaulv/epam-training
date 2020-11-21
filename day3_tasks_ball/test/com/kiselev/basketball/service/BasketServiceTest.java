@@ -5,6 +5,7 @@ import com.kiselev.basketball.entity.Basket;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertSame;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class BasketServiceTest {
     @Test
@@ -17,14 +18,7 @@ public class BasketServiceTest {
         BasketService service = new BasketService();
         int actualAmount = service.countBlueBalls(basket);
         double actualWeight = service.totalBallsWeight(basket);
-        String[] a = String.valueOf(expectedWeight).split("[.]");
-        int expectedWeightInt = Integer.parseInt(a[0]);
-        int expectedWeightFrac = Integer.parseInt(a[1]);
-        a = String.valueOf(actualWeight).split("[.]");
-        int actualWeightInt = Integer.parseInt(a[0]);
-        int actualWeightFrac = Integer.parseInt(a[1]);
         assertSame(actualAmount, expectedAmount);
-        assertSame(actualWeightInt, expectedWeightInt);
-        assertSame(actualWeightFrac, expectedWeightFrac);
+        assertEquals(actualWeight, expectedWeight);
     }
 }
