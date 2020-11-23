@@ -4,9 +4,7 @@ import com.kiselev.task1.entity.Array;
 import com.kiselev.task1.report.ArrayReport;
 import com.kiselev.task1.service.ArrayService;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-
 
 public class ArrayMain {
     public static void main(String[] args) {
@@ -15,13 +13,7 @@ public class ArrayMain {
             ArrayReport report = new ArrayReport();
         try {
             //bubble
-            int[] array1;
-            array1 = service.createArrayFromFile();
-            Array array = new Array(array1);
-            array = new Array(array1);
-            report.showArray(array1);
-
-            /*int[] array1 = service.createArray();
+            int[] array1 = service.createArray();
             report.showArray(array1);
             Array array = new Array(array1);
             array1 = service.bubbleSort(array);
@@ -62,7 +54,7 @@ public class ArrayMain {
             report.showArray(array1);
             array1 = service.createArrayOfRandom();
             array = new Array(array1);
-            report.showArray(array1);*/
+            report.showArray(array1);
         } catch (IOException e) {
             System.out.println("IOError.");
         }
